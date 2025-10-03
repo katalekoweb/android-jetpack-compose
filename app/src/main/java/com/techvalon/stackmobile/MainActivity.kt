@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -33,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -61,10 +63,56 @@ fun Cadastro () {
 }
 
 @Composable
-fun Login () {
-
+fun Home () {
+    Column (
+        modifier = Modifier.fillMaxSize().background(Color.White),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            imageVector = Icons.Rounded.Home,
+            contentDescription = null,
+            tint = Color.Blue,
+            modifier = Modifier.size(150.dp).padding(10.dp)
+        )
+        Text("Juliao Kataleko", fontSize = 30.sp)
+    }
 }
 
+/*
+@Composable
+fun Home () {
+    Column  (
+        modifier = Modifier.fillMaxSize().background(Color.DarkGray),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Box(
+            modifier = Modifier.size(200.dp).background(Color.White),
+            contentAlignment = Alignment.Center
+        ) {
+
+            Box(
+                modifier = Modifier.size(120.dp).background(Color.Black)
+            ) {
+
+                /*
+            Box(
+                modifier = Modifier.size(200.dp).background(Color.Green)
+            ) {
+
+            }
+
+            Text("Box 1", fontSize = 30.sp)
+            Text("Box 2", fontSize = 30.sp)
+             */
+            }
+        }
+    }
+}
+ */
+
+/*
 @ExperimentalMaterial3Api
 @Composable
 fun Home () {
@@ -110,6 +158,7 @@ fun Home () {
         }
     }
 }
+ */
 
 // aula 2
 /*
@@ -145,3 +194,9 @@ fun Home () {
     }
 }
  */
+
+@Preview(name = "HomePreview", device = "id:tv_1080p")
+@Composable
+fun HomePreview () {
+    Home()
+}
