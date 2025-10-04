@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +19,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.Menu
@@ -40,9 +42,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -272,6 +278,7 @@ fun Home () {
  */
 
 // lesson 7 - canvas
+/*
 @Composable
 fun Home () {
     Column (
@@ -324,6 +331,33 @@ fun Home () {
             )
         }
     }
+}
+
+ */
+
+// lesson 8 - images
+@Composable
+fun Home () {
+
+    Column (
+        modifier = Modifier.fillMaxSize().background(color = Color.White),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.imagem),
+            contentDescription = "Imagem Espacial",
+            modifier = Modifier.size(300.dp).clip(shape = RoundedCornerShape(40.dp)),
+            contentScale = ContentScale.Crop,
+            colorFilter = ColorFilter.colorMatrix(
+                colorMatrix = ColorMatrix().apply {
+                    setToSaturation(8f)
+                    setToRotateRed(5f)
+                }
+            )
+        )
+    }
+
 }
 
 @Preview(name = "HomePreview", device = "id:Nexus 5")
