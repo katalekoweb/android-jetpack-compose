@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -39,6 +40,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -71,6 +74,8 @@ fun Cadastro () {
     }
 }
 
+// lesson 6 - state management
+/*
 @Composable
 fun Home () {
     Column (
@@ -128,6 +133,8 @@ fun Home () {
 
     }
 }
+
+ */
 
 /*
 @Composable
@@ -263,6 +270,61 @@ fun Home () {
     }
 }
  */
+
+// lesson 7 - canvas
+@Composable
+fun Home () {
+    Column (
+        modifier = Modifier.fillMaxSize()
+            .background(color = Color.DarkGray)
+            .padding(20.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Canvas(
+            modifier = Modifier.fillMaxWidth()
+                .height(350.dp)
+                .background(color = Color.White)
+        ) {
+            drawRect(
+                color = Color.Green,
+                size = Size(
+                    width = 500f,
+                    height = 350f
+                ),
+                topLeft = Offset(
+                    x = 100f,
+                    y = 50f
+                )
+            )
+
+            drawOval(
+                color = Color.Blue,
+                size = Size(
+                    width = 150f,
+                    height = 150f
+                ),
+                topLeft = Offset(
+                    x = 100f,
+                    y = 500f
+                )
+            )
+
+            drawLine(
+                color = Color.Blue,
+                start = Offset(
+                    x = 0f,
+                    y = 0f
+                ),
+                end = Offset(
+                    x = 0f,
+                    y = 50f
+                ),
+                strokeWidth = 80f
+            )
+        }
+    }
+}
 
 @Preview(name = "HomePreview", device = "id:Nexus 5")
 @Composable
